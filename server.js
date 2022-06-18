@@ -45,7 +45,7 @@ app.listen(port, () => {
   })
 
   // Schedule tasks to be run on the server.
-  cron.schedule("0 8 * * 0, 2, 4, 6", () => {
+  cron.schedule("0 8 * * 0,2,4,6", () => {
     message()
   })
 })
@@ -61,7 +61,7 @@ const message = () => {
       from: TWILIO_PHONE_NUMBER,
       to: numbers[iter],
     })
-  } else if (day == 2) {
+  } else if (day === 2) {
     // Tuesday
     client.messages
       .create({
@@ -74,7 +74,7 @@ const message = () => {
       .then(() => {
         garbageWeek = !garbageWeek
       })
-  } else if (day == 4) {
+  } else if (day === 4) {
     // Thursday
     client.messages
       .create({
@@ -85,7 +85,7 @@ const message = () => {
       .then((message) => {
         towel == 3 ? 0 : towel + 1
       })
-  } else if (day == 6) {
+  } else if (day === 6) {
     // Saturday
     client.messages
       .create({
