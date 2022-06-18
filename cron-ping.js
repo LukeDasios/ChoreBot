@@ -61,19 +61,29 @@ function whoIsNext(num) {
 
 let messages = [tuesdayMessage, sundayMessage1, sundayMessage2]
 
+// # ┌────────────── second (optional)
+// # │ ┌──────────── minute
+// # │ │ ┌────────── hour
+// # │ │ │ ┌──────── day of month
+// # │ │ │ │ ┌────── month
+// # │ │ │ │ │ ┌──── day of week
+// # │ │ │ │ │ │
+// # │ │ │ │ │ │
 // * * * * * *
-// | | | | | |
-// | | | | | day of week
-// | | | | month
-// | | | day of month
-// | | hour
-// | minute
-// second ( optional )
 
 const times = ["from now till Sunday morning @10am", "* 8 * * *", "* 48 * * *"]
 let nextTime = 0
 
+let x = ["*/1 * * * * *", "*/5 * * * * *", "*/10 * * * * *"]
+let correctMessage = [
+  "It's been one second",
+  "it's been 5 seconds",
+  "it's been 10 seconds",
+]
+let i = 0
+
 // Schedule tasks to be run on the server.
-cron.schedule("* * * * *", () => {
-  messages[nextTime]
+cron.schedule(x[i], () => {
+  console.log(correctMessage[i])
+  i == 2 ? 0 : i + 1
 })
