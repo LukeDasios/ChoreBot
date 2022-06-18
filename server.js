@@ -8,10 +8,6 @@ const TWILIO_PHONE_NUMBER = process.env.TWILIO_PHONE_NUMBER
 
 const client = require("twilio")(accountSid, authToken)
 
-client.messages
-  .create({ body: "Hi there", from: TWILIO_PHONE_NUMBER, to: "+16479385063" })
-  .then((message) => console.log(message.sid))
-
 const express = require("express")
 const app = express()
 const port = 3000
