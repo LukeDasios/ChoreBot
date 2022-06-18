@@ -19,7 +19,7 @@ function whoIsNext(num) {
 let garbageWeek = false
 const theBoys = ["Luke", "Duncan", "Sam", "Jp"]
 const numbers = ["+16479385063", "+14168261333", "+14168447692", "+14166169331"]
-let iter = 0
+let iter = 3
 let towel = 2
 
 app.get("/", (req, res) => {
