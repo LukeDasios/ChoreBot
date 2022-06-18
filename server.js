@@ -10,7 +10,7 @@ const client = require("twilio")(accountSid, authToken)
 
 const express = require("express")
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 function whoIsNext(num) {
   num === 3 ? "Luke" : theBoys[num + 1]
