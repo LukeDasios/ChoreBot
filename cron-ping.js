@@ -16,8 +16,8 @@ const tuesdayMessage = () => {
   client.messages
     .create({
       body: garbageWeek
-        ? `Good Evening ${theBoys[iter]}! In case you haven't already done so already, friendly reminder that the Recycling, Compost, and Garbage need to be taken to the curb by tonight. Cheers.`
-        : `Good Evening ${theBoys[iter]}! In case you haven't already done so already, friendly reminder that the Recycling and Compost need to be taken to the curb by tonight. Cheers.`,
+        ? `Good Evening ${theBoys[iter]}! In case you haven't already done so already, the Recycling, Compost, and Garbage need to be taken to the curb by tonight. Cheers.`
+        : `Good Evening ${theBoys[iter]}! In case you haven't already done so already, the Recycling and Compost need to be taken to the curb by tonight. Cheers.`,
       from: TWILIO_PHONE_NUMBER,
       to: "+16479385063",
     })
@@ -30,9 +30,11 @@ const tuesdayMessage = () => {
 const sundayMessage1 = () => {
   client.messages
     .create({
-      body: "",
+      body: `Good Morning ${
+        theBoys[iter]
+      }! Please empty the Recycling, Green bin, and Garbage one last time so that ${whoIsNext()} may start their week with a clean slate. After that, you are free!`,
       from: TWILIO_PHONE_NUMBER,
-      to: "+16479385063",
+      to: "+16479385063", //numbers[iter]
     })
     .then((message) => {
       console.log(message.body)
@@ -43,14 +45,18 @@ const sundayMessage1 = () => {
 const sundayMessage2 = () => {
   client.messages
     .create({
-      body: "",
+      body: `Good Evening ${theBoys[iter]}! Heads up, You're on garbage duty this week.`,
       from: TWILIO_PHONE_NUMBER,
-      to: "+16479385063",
+      to: "+16479385063", // numbers[iter]
     })
     .then((message) => {
       console.log(message.body)
       nextTime == 2 ? 0 : nextTime + 1
     })
+}
+
+function whoIsNext(num) {
+  num === 3 ? "Luke" : theBoys[num + 1]
 }
 
 let messages = [tuesdayMessage, sundayMessage1, sundayMessage2]
