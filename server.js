@@ -19,6 +19,7 @@ const theBoys = ["Luke", "Duncan", "Sam", "Jp"]
 const numbers = ["+16479385063", "+14168261333", "+14168447692", "+14166169331"]
 let iter = 0
 let towel = 2
+let hit = true
 
 app.get("/", (req, res) => {
   res.send("Hello World!")
@@ -44,7 +45,7 @@ app.listen(port, () => {
 
 const message = (day, hour) => {
   // Send the correct message depending on what day it is
-  if (hour === 18) {
+  if (hour === 18 && hit) {
     if (day === 0) {
       // Sunday
       client.messages.create({
@@ -91,4 +92,5 @@ const message = (day, hour) => {
         })
     }
   }
+  hit = !hit
 }
