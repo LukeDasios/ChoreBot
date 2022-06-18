@@ -45,7 +45,7 @@ app.listen(port, () => {
   })
 
   // Schedule tasks to be run on the server.
-  cron.schedule("0 8 * * 0,2,4,6", () => {
+  cron.schedule("0 18 * * 0,2,4,6", () => {
     message()
   })
 })
