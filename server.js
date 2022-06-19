@@ -23,6 +23,12 @@ let hit = true
 
 app.get("/", (req, res) => {
   res.send("Hello World!")
+
+  let fullDate = new Date()
+  let day = fullDate.getDay()
+  let hour = fullDate.getHours()
+
+  message(day, hour)
 })
 
 // # ┌────────────── second (optional)
@@ -35,13 +41,7 @@ app.get("/", (req, res) => {
 // # │ │ │ │ │ │
 // * * * * * *
 
-app.listen(port, () => {
-  let fullDate = new Date()
-  let day = fullDate.getDay()
-  let hour = fullDate.getHours()
-
-  message(day, hour)
-})
+app.listen(port)
 
 const message = (day, hour) => {
   // Send the correct message depending on what day it is
@@ -83,7 +83,7 @@ const message = (day, hour) => {
         .create({
           body: `Good Efternoon ${
             theBoys[iter]
-          }! Please empty the Recycling, Green bin, and Garbage one last time so that ${whoIsNext()} may start their week with a clean slate. After that, you are free!`,
+          }! Empty the Recycling, Green bin, and Garbage one last time so that ${whoIsNext()} may start their week with a clean slate. After that, you are free!`,
           from: TWILIO_PHONE_NUMBER,
           to: numbers[iter],
         })
