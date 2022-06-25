@@ -74,7 +74,7 @@ const message = (day, hour) => {
           from: TWILIO_PHONE_NUMBER,
           to: numbers[towel],
         })
-        .then((message) => {
+        .then(() => {
           towel = towel === 3 ? 0 : towel + 1
         })
     } else if (day === 6) {
@@ -87,7 +87,7 @@ const message = (day, hour) => {
           from: TWILIO_PHONE_NUMBER,
           to: numbers[iter],
         })
-        .then((message) => {
+        .then(() => {
           iter = iter == 3 ? 0 : iter + 1
         })
     }
