@@ -18,7 +18,7 @@ let garbageWeek = true
 const theBoys = ["Luke", "Duncan", "Sam", "Jp"]
 const numbers = ["+16479385063", "+14168261333", "+14168447692", "+14166169331"]
 let iter = 1
-let towel = 2
+let towel = 3
 let hit = true
 
 app.get("/", (req, res) => {
