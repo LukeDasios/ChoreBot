@@ -14,10 +14,10 @@ function whoIsNext(num) {
   num === 3 ? "Luke" : theBoys[num + 1]
 }
 
-let garbageWeek = false
+let garbageWeek = true
 const theBoys = ["Luke", "Duncan", "Sam", "Jp"]
 const numbers = ["+16479385063", "+14168261333", "+14168447692", "+14166169331"]
-let iter = 0
+let iter = 1
 let towel = 2
 let hit = true
 
@@ -75,20 +75,20 @@ const message = (day, hour) => {
           to: numbers[towel],
         })
         .then((message) => {
-          towel == 3 ? 0 : towel + 1
+          towel = towel === 3 ? 0 : towel + 1
         })
     } else if (day === 6) {
       // Saturday
       client.messages
         .create({
-          body: `Good Efternoon ${
+          body: `Good Afternoon ${
             theBoys[iter]
           }! Empty the Recycling, Green bin, and Garbage one last time so that ${whoIsNext()} may start their week with a clean slate. After that, you are free!`,
           from: TWILIO_PHONE_NUMBER,
           to: numbers[iter],
         })
         .then((message) => {
-          iter == 3 ? 0 : iter + 1
+          iter = iter == 3 ? 0 : iter + 1
         })
     }
   }
